@@ -6,6 +6,10 @@
   @apply text-white bg-primary;
 }
 
+.btn.btn-primary-disable {
+  @apply text-white bg-primary-disable;
+}
+
 .btn.btn-danger {
   @apply text-white bg-danger;
 }

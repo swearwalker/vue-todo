@@ -5,6 +5,7 @@ module.exports = {
       colors: {
         primary: {
           default: '#2196F3',
+          disable: '#90CAF9',
           hover: '#1976D2',
           active: '#0D47A1',
         },
@@ -38,7 +39,7 @@ module.exports = {
           hover: '#F57C00',
           active: '#E65100',
         },
-      }
+      },
     },
   },
   variants: {},
