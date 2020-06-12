@@ -1,4 +1,4 @@
-# vue-starter-pack
+# notes
 
 ## Project setup
 ```
