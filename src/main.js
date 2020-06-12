@@ -1,32 +1,44 @@
 import Vue from 'vue';
-import App from './app.vue';
-import router from './router';
-import store from './store';
+import App from '@/App.vue';
+// import '@/registerServiceWorker';
+import router from '@/router';
+import store from '@/store';
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+import Toast from 'vue-toastification';
 
 import Vuelidate from 'vuelidate';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
 import VueMoment from 'vue-moment';
-const moment = require('moment');
-require('moment/locale/uk');
+import Moment from 'moment';
+import 'moment/locale/uk';
 
-import './assets/css/tailwind.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import 'vue-toastification/dist/index.css';
+
+import './assets/styles/fonts.scss';
 import './assets/styles/components.scss';
-import './assets/styles/colors.scss';
 
-library.add(faUserSecret);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
-Vue.use(VueMoment, {
-  moment,
+Vue.use(Toast, {
+  position: 'bottom-right',
+  newestOnTop: true,
+  maxToasts: 5,
+  showCloseButtonOnHover: true,
+  timeout: 5000,
+  transition: 'Vue-Toastification__bounce',
 });
 
 Vue.use(Vuelidate);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.use(VueMoment, {
+  Moment,
+});
 
 Vue.config.productionTip = false;
 

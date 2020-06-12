@@ -1,22 +1,22 @@
 <template>
-  <div id="app" class="w-full min-h-screen bg-gradient-main">
-    <HeaderComponent/>
+  <div id="app">
+    <Header />
     <router-view />
   </div>
 </template>
 
 <script>
-  import HeaderComponent from '@/components/common/header'
-  export default {
-    name: "app",
-    components: {
-      HeaderComponent,
-    },
-    data() {
-      return {}
-    },
-  };
+import Header from '@/components/common/Header';
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

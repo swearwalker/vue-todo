@@ -1,29 +1,41 @@
 <template>
-  <main id="main" class="flex items-center justify-center">
-    <div class="container flex flex-col items-center justify-center">
-      <h2 class="title text-white mb-4">
-        Обраний тип -
-        <span class="font-bold text-white">{{ $store.state.storageType }}</span>
-      </h2>
-      <button class="btn btn-primary mb-2" @click="changeStorageType('localStorage')">LocalStorage</button>
-      <button class="btn btn-danger" @click="changeStorageType('firebase')">Firebase</button>
-    </div>
+  <main id="main">
+    <b-container>
+      <b-row>
+        <b-col>
+          <b-form-select
+            v-model="$store.state.storageType"
+            :options="options"
+            @change="changeStorageType"
+          ></b-form-select>
+        </b-col>
+      </b-row>
+    </b-container>
   </main>
 </template>
 
 <script>
-  export default {
-    name: "settings",
-    data() {
-      return {}
+// import HelloWorld from '@/components/HelloWorld.vue';
+
+export default {
+  name: 'Settings',
+  components: {},
+  data() {
+    return {
+      options: ['firebase', 'localStorage'],
+    };
+  },
+  computed: {
+    type() {
+      return this.$store.state.storageType;
     },
-    methods: {
-      changeStorageType(type) {
-        this.$store.commit('changeStorageType', type)
-      }
-    }
-  };
+  },
+  methods: {
+    changeStorageType(selected) {
+      this.$store.commit('changeStorageType', selected);
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

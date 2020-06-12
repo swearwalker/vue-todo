@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
-import index from '@/views/index';
-import create from '@/views/create';
-import settings from '@/views/settings';
+import Index from '@/views/Index.vue';
+import CreateNote from '@/views/CreateNote.vue';
+import Settings from '@/views/Settings.vue';
 
 Vue.use(VueRouter);
 
@@ -11,33 +10,33 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: index,
+    component: Index,
   },
   {
-    path: '/create',
-    name: 'create',
-    component: create,
+    path: '/create-note',
+    name: 'create-note',
+    component: CreateNote,
   },
   {
     path: '/settings',
     name: 'settings',
-    component: settings,
+    component: Settings,
   },
   {
-    path: '/edit/:id',
-    name: 'edit',
-    component: () => import('../views/edit'),
+    path: '/edit-note/:id',
+    name: 'edit-note',
+    component: () => import('@/views/EditNote.vue'),
   },
   {
-    path: '/view/:id',
-    name: 'view',
-    component: () => import('../views/view'),
+    path: '/view-note/:id',
+    name: 'view-note',
+    component: () => import('@/views/ViewNote.vue'),
   },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: process.env.VUE_APP_BASE_URL,
   routes,
 });
 
